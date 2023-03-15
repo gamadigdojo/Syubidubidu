@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->string('OrderID')->primary();
+            $table->char('OrderID',5)->primary();
             $table->string('Email');
-            $table->string('PaymentMethodID');
-            $table->string('ShipmentTypeID');
+            $table->char('PaymentMethodID',5);
+            $table->char('ShipmentTypeID',5);
             $table->date('OrderDate');
             $table->string('OrderDestination');
             $table->foreign('Email')->references('Email')->on('users');

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('oder_details', function (Blueprint $table) {
-            $table->string('OrderID');
-            $table->string('ProductID');
+            $table->char('OrderID',5);
+            $table->char('ProductID',5);
             $table->integer('Quantity');
             $table->primary(['OrderID', 'ProductID']); 
             $table->foreign('OrderID')->references('OrderID')->on('orders');

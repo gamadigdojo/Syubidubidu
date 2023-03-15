@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('shipment_types', function (Blueprint $table) {
-            $table->string('ShipmentTypeID')->primary();
+            $table->char('ShipmentTypeID',5)->primary();
             $table->string('ShipmentTypeName');
             $table->integer('ShipmentTypeFee');
             $table->timestamps();
