@@ -64,15 +64,17 @@
             <form method="POST" action="{{ route('login') }}" onsubmit="return validateForm()">
                 @csrf
                 <div class="input-box">
-                    <input type="text" name="email" id="email" placeholder="Email" name='email'>
+                    <input type="text" name="email" id="email" placeholder="Email" name="email">
                     <div class="error-message" id="error-email"></div>
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" id="password" placeholder="Password" name='password'>
+                    <input type="password" name="password" id="password" placeholder="Password" name="password">
                     <div class="error-message" id="error-pass"></div>
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
                 <div class="remember-me">
-                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox" name='remember'>
+                    <input type="checkbox" name="checkbox" id="checkbox" class="checkbox" name="remember">
                     <div class="description">Remember me</div>
                 </div>
                 <div class="btn">

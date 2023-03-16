@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->char('ProductID',5);
             $table->string('Email');
-            $table->integer('Quantity');
+            $table->integer('Quantity')-> default(1);
             $table->primary(['ProductID', 'Email']);
             $table->foreign('ProductID')->references('ProductID')->on('products');
             $table->foreign('Email')->references('Email')->on('users');

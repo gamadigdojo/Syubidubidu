@@ -1,20 +1,21 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
-class InventoryController extends Controller
+class CartController extends Controller
 {
     /**
-     * Compact all the products from Product model
+     * show all the products in the cart
      */
     public function index()
     {
-        $product = Product::all();
-        return view('inventory', compact('product'));
+        // show all the products in the cart based on the user email
+        $cart = Cart::where('Email', auth()->user()->email)->get();
+        return view('cart', compact('cart'));
     }
 
     /**
@@ -30,7 +31,15 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cart::create([
+            // 'ProductID' => $request->ProductID,
+            'ProductID' => $request->ProductID,
+            'Quantity' => 1,
+            'Email' => $request->Email,
+        ]);
+
+        // redirect to inventory page
+        return redirect()->route('inventory')->with('success', 'Product added to cart');
     }
 
     /**
@@ -38,7 +47,7 @@ class InventoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**

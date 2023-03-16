@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inventory</title>
+    <title>Cart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
@@ -43,27 +43,20 @@
             </form>
           </div>
         </div>
-      </nav>
+    </nav>
 
-      <div class="row">
-        @foreach ($product as $p)
+    <div class="row">
+        @foreach ($cart as $c)
         <div class="col-sm-6 ">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">{{$p->ProductID}}</h5>
-              <p class="card-text">{{$p->ProductName}}</p>
-              {{-- form to post the poduct to cart table --}}
-              <form action="{{route('AddToCart')}}" method="POST">
-                @csrf
-                <input type="hidden" name="ProductID" value="{{$p->ProductID}}">
-                <input type="hidden" name="Email" value="{{Auth::user()->email}}">
-                <input type="hidden" name="Quantity" value="1">
-                <button type="submit" class="btn btn-primary">Add to cart</button>
-              </form>
+              <h5 class="card-title">{{$c->ProductID}}</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         </div>
         @endforeach
-      </div>
+    </div>
 </body>
 </html>

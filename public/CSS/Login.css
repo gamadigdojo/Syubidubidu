@@ -7,7 +7,7 @@
 }
 
 body{
-    background-image: url(./assets/Background.png);
+    background-image: url(../Assets/LoginBackground.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-color:#292336;
