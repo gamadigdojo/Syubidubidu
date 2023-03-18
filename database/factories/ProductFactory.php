@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             'ProductID' => $this->faker->unique()->regexify('PD[0-9]{3}'),
             'ProductName' => $this->faker->unique()->name(),
             'ProductDescription' => $this->faker->text(),
+            'ProductCategory' => $this->faker->randomElement(['Beverage', 'Food', 'Snack','Dessert']),
             'ProductPrice' => $this->faker->numberBetween(1000, 100000),
             'ProductStock' => $this->faker->numberBetween(50, 100),
             'ProductImage' => $this->faker->imageUrl(640, 480, 'cats', true, 'Faker'),

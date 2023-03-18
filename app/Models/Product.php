@@ -12,6 +12,7 @@ class Product extends Model
         'ProductID',
         'ProductName',
         'ProductPrice',
+        'ProductCategory',
         'ProductDescription',
         'ProductImage',
         'ProductStock',
