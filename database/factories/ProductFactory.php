@@ -26,6 +26,7 @@ class ProductFactory extends Factory
             'ProductPrice' => $this->faker->numberBetween(1000, 100000),
             'ProductStock' => $this->faker->numberBetween(50, 100),
             'ProductImage' => $this->faker->imageUrl(640, 480, 'cats', true, 'Faker'),
+            'StoreID' => $this->faker->randomElement(['ST001', 'ST002', 'ST003', 'ST004', 'ST005', 'ST006', 'ST007', 'ST008', 'ST009', 'ST010']),
         ];
     }
 }
