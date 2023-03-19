@@ -157,6 +157,19 @@ button[type=submit]:hover{
  border-radius: 30px;
 }
 
+link-have-acc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: "Poppins";
+}
+
+.link-have-acc a{
+    color: #D9D9D9;
+}
 
 
 

@@ -137,6 +137,10 @@
             <div class="submit-btn">
                 <button type="submit" id="submitBtn">Register</button>
             </div>
+            <br>
+            <div class="link-have-acc">
+                <h1>Already have account? <a href="{{ route('login') }}">click here</a> to login </h1>
+            </div>
             </form>
     </section>
 </body>

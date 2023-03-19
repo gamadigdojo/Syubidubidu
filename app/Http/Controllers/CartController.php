@@ -13,7 +13,6 @@ class CartController extends Controller
      */
     public function index()
     {
-        // show all the products in the cart based on the user email
         $cart = Cart::where('Email', auth()->user()->email)->get();
         return view('cart', compact('cart'));
     }
@@ -31,17 +30,23 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        Cart::create([
-            // 'ProductID' => $request->ProductID,
-            'ProductID' => $request->ProductID,
-            'Quantity' => 1,
-            'Email' => $request->Email,
-        ]);
-
+        // check if the product is already in the cart
+        $cart = Cart::where('Email', auth()->user()->email)->where('ProductID', $request->ProductID)->first();
+        if ($cart) {
+            //
+        }else{
+            Cart::create([
+                'ProductID' => $request->ProductID,
+                'Quantity' => 1,
+                'Email' => $request->Email,
+            ]);
+        }
         // redirect to inventory page
         return redirect()->route('inventory')->with('success', 'Product added to cart');
     }
 
+    
+   
     /**
      * Display the specified resource.
      */
@@ -63,7 +68,7 @@ class CartController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**

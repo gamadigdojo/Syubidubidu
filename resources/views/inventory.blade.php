@@ -55,6 +55,7 @@
               {{-- form to post the poduct to cart table --}}
               <form action="{{route('AddToCart')}}" method="POST">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="ProductID" value="{{$p->ProductID}}">
                 <input type="hidden" name="Email" value="{{Auth::user()->email}}">
                 <input type="hidden" name="Quantity" value="1">

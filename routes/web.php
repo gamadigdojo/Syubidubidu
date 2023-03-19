@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
-Route::post('AddToCart', [CartController::class, 'store'])->name('AddToCart');
+Route::put('AddToCart', [CartController::class, 'store'])->name('AddToCart');
+Route::get('CheckCart/{id}', [CartController::class, 'CheckCart'])->name('CheckCart');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 require __DIR__.'/auth.php';
