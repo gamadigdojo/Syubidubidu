@@ -39,5 +39,27 @@ class AdminController extends Controller
         return redirect(route('adminPanel'));
     }
 
+    public function getUpdateItem($id){
+        $product = Product::findOrFail($id);
+
+        return view('updateItem', compact('product'));
+    }
+
+    public function updateItem(ProductRequest $request, $id){
+        $product = Product::findOrFail($id);
+
+        $product->update([
+            'ProductID' => $request -> ProductID,
+            'ProductName' => $request -> ProductName,
+            'ProductPrice' => $request -> ProductPrice,
+            'ProductCategory' => $request -> ProductCategory,
+            'ProductDescription' => $request -> ProductDescription,
+            'ProductStock' => $request -> ProductStock,
+            'StoreID' => $request -> StoreID,
+        ]);
+
+        return redirect(route('adminPanel'));
+    }
+
 
 }

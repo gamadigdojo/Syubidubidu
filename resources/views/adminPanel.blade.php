@@ -46,7 +46,7 @@
                 <tr>
                     <td>
                         <div class="product-column">
-                            <img src="{{asset('/storage/product/'.$product->ProductImage)}}" alt="">
+                            <img src="{{asset('storage/products/'.$product->ProductImage)}}" alt="">
                             <div>
                                 <h5>{{$product->ProductName}}</h5>
                                 <p>{{$product->ProductID}}</p>
@@ -59,7 +59,7 @@
                     <td>{{$product->ProductDescription}}</td>
                     <td>
                         <div class="editDelete">
-                            <a href="">
+                            <a href="{{route('updateItemPage', [$product->ProductID])}}">
                                 <button type="button"><i class="uil uil-edit"></i></button>
                             </a>
                             <form action="" method="POST">

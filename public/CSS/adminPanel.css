@@ -78,10 +78,10 @@ color: #AA77FF;
 
 .table{
     margin: 0 200px;
-    /* width: 80%; */
 }
 .table .product-column{
     display: flex;
+    gap: 20px;
     justify-content: center;
     align-items: center;
 }
