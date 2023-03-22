@@ -18,9 +18,20 @@
         </ul>
     </nav>
 
+    <div class="title">
+        <h1>Admin Panel</h1>
+        <a href="{{route('addItemPage')}}"><button type="button" class="addButton">+ Add Product</button></a>
+    </div>
+
     <div class="table">
         <table>
             <thead>
+                <col width="15%">
+                <col width="15%">
+                <col width="10%">
+                <col width="15%">
+                <col width="35%">
+                <col width="10%">
                 <tr>
                     <th>PRODUCTS</th>
                     <th>PRICE</th>
@@ -31,52 +42,33 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($products as $product)
                 <tr>
-                    <td class="product-column">
-                        <img src="1.png" alt="">
-                        <div>
-                            <h5>Name</h5>
-                            <p>ID</p>
+                    <td>
+                        <div class="product-column">
+                            <img src="{{asset('/storage/product/'.$product->ProductImage)}}" alt="">
+                            <div>
+                                <h5>{{$product->ProductName}}</h5>
+                                <p>{{$product->ProductID}}</p>
+                            </div>
                         </div>
                     </td>
-                    <td>Rp 12.000.000</td>
-                    <td>12</td>
-                    <td>Snack</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                    <td>{{$product->ProductPrice}}</td>
+                    <td>{{$product->ProductStock}}</td>
+                    <td>{{$product->ProductCategory}}</td>
+                    <td>{{$product->ProductDescription}}</td>
                     <td>
-                        <div style="display: flex; gap: 10px">
+                        <div class="editDelete">
                             <a href="">
-                                <button type="button" class="btn btn-success"><i class="uil uil-edit"></i></button>
+                                <button type="button"><i class="uil uil-edit"></i></button>
                             </a>
                             <form action="" method="POST">
-                                <button type="submit" class="btn btn-danger"><i class="uil uil-trash-alt"></i></button>
+                                <button type="submit"><i class="uil uil-trash-alt"></i></button>
                             </form>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td class="product-column">
-                        <img src="1.png" alt="">
-                        <div>
-                            <h5>Name</h5>
-                            <p>ID</p>
-                        </div>
-                    </td>
-                    <td>Rp 12.000.000</td>
-                    <td>12</td>
-                    <td>Snack</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                    <td>
-                        <div style="display: flex; gap: 10px">
-                            <a href="">
-                                <button type="button" class="btn btn-success"><i class="uil uil-edit"></i></button>
-                            </a>
-                            <form action="" method="POST">
-                                <button type="submit" class="btn btn-danger"><i class="uil uil-trash-alt"></i></button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

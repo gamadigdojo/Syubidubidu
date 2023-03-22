@@ -61,6 +61,21 @@ color: #AA77FF;
 .navbar a:hover::before {
     width: 100%;
 }
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 200px;
+    color: #fff;
+}
+.title button{
+    background-color: #3699FF;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+}
+
 .table{
     margin: 0 200px;
     /* width: 80%; */
@@ -74,10 +89,18 @@ color: #AA77FF;
     width: 50px;
 }
 th{
+    position: sticky;
     padding: 5px;
     background-color: #F3F6F9;
 }
 td{
     padding: 30px 20px;
     color: #FFF;
+}
+.editDelete{
+    display: flex;
+    gap: 20px;
+}
+i{
+    color: #1BC5BD;
 }

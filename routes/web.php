@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\CartController;
@@ -34,5 +35,9 @@ Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory
 Route::put('AddToCart', [CartController::class, 'store'])->name('AddToCart');
 Route::get('CheckCart/{id}', [CartController::class, 'CheckCart'])->name('CheckCart');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('adminPanel');
+Route::get('/admin/add', [AdminController::class, 'getAddItem'])->name('addItemPage');
+Route::post('/admin/add', [AdminController::class, 'addItem'])->name('addItem');
 
 require __DIR__.'/auth.php';
