@@ -49,6 +49,7 @@
                             <img src="{{asset('storage/products/'.$product->ProductImage)}}" alt="">
                             <div>
                                 <h5>{{$product->ProductName}}</h5>
+                                {{-- show the primary key from product (ProductID) --}}
                                 <p>{{$product->ProductID}}</p>
                             </div>
                         </div>

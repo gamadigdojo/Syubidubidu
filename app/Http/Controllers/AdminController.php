@@ -10,7 +10,6 @@ class AdminController extends Controller
 {
     public function index(){
         $products = Product::all();
-
         return view('adminPanel', compact('products'));
     }
 
@@ -18,7 +17,7 @@ class AdminController extends Controller
         return view('addItem');
     }
 
-    public function addItem(ProductRequest $request){
+    public function addItem(Request $request){
 
         $extension = $request -> file('ProductImage')->getClientOriginalExtension();
         $filename = $request->ProductName.'.'.$extension;
@@ -32,8 +31,8 @@ class AdminController extends Controller
             'ProductDescription' => $request -> ProductDescription,
             'ProductImage' => $request -> ProductImage,
             'ProductStock' => $request -> ProductStock,
-            'StoreID' => $request -> StoreID,
-            'ProductImage' => $filename
+            'StoreName' => $request -> StoreName,
+            'ProductImage' => $filename 
         ]);
 
         return redirect(route('adminPanel'));
@@ -45,7 +44,7 @@ class AdminController extends Controller
         return view('updateItem', compact('product'));
     }
 
-    public function updateItem(ProductRequest $request, $ProductID){
+    public function updateItem(Request $request, $ProductID){
         $product = Product::where('ProductID', $ProductID)->firstOrFail();
 
         $product->update([

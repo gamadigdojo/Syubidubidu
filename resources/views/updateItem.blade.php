@@ -9,7 +9,7 @@
 <body>
     <div>
         <div>
-            <form action="{{route('updateItem', [$product->ProductID])}}" method="POST">
+            <form action="{{route('updateItem',$product->ProductID)}}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div>
