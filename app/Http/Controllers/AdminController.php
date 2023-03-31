@@ -38,28 +38,29 @@ class AdminController extends Controller
 
         return redirect(route('adminPanel'));
     }
-
-    public function getUpdateItem($id){
-        $product = Product::findOrFail($id);
+    
+    public function getUpdateItem($ProductID){
+        $product = Product::where('ProductID', $ProductID)->firstOrFail();
 
         return view('updateItem', compact('product'));
     }
 
-    public function updateItem(ProductRequest $request, $id){
-        $product = Product::findOrFail($id);
+    public function updateItem(ProductRequest $request, $ProductID){
+        $product = Product::where('ProductID', $ProductID)->firstOrFail();
 
         $product->update([
-            'ProductID' => $request -> ProductID,
-            'ProductName' => $request -> ProductName,
-            'ProductPrice' => $request -> ProductPrice,
-            'ProductCategory' => $request -> ProductCategory,
-            'ProductDescription' => $request -> ProductDescription,
-            'ProductStock' => $request -> ProductStock,
-            'StoreID' => $request -> StoreID,
+            'ProductDescription' => $request->ProductDescription,
+            'ProductStock' => $request->ProductStock
         ]);
 
         return redirect(route('adminPanel'));
     }
 
+    public function deleteItem($ProductID){
+        $product = Product::where('ProductID', $ProductID)->firstOrFail();
 
+        $product->delete();
+
+        return redirect(route('adminPanel'));
+    }
 }

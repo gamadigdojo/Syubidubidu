@@ -62,7 +62,9 @@
                             <a href="{{route('updateItemPage', [$product->ProductID])}}">
                                 <button type="button"><i class="uil uil-edit"></i></button>
                             </a>
-                            <form action="" method="POST">
+                            <form action="{{route('deleteItem', [$product->ProductID])}}" method="POST">
+                                @csrf
+                                @method('delete')
                                 <button type="submit"><i class="uil uil-trash-alt"></i></button>
                             </form>
                         </div>
