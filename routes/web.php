@@ -39,7 +39,9 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/admin', [AdminController::class, 'index'])->name('adminPanel');
 Route::get('/admin/add', [AdminController::class, 'getAddItem'])->name('addItemPage');
 Route::post('/admin/add', [AdminController::class, 'addItem'])->name('addItem');
-Route::get('/admin/update/{id}', [AdminController::class, 'getUpdateItem'])->name('updateItemPage');
-Route::post('/admin/update/{id}', [AdminController::class, 'updateItem'])->name('updateItem');
+Route::get('/admin/update/{ProductID}', [AdminController::class, 'getUpdateItem'])->name('updateItemPage');
+Route::patch('/admin/update/{ProductID}', [AdminController::class, 'updateItem'])->name('updateItem');
+Route::delete('/admin/delete/{ProductID}', [AdminController::class, 'deleteItem'])->name('deleteItem');
+
 
 require __DIR__.'/auth.php';
