@@ -19,9 +19,8 @@ return new class extends Migration
             $table->integer('ProductStock');
             $table->string('ProductCategory');
             $table->string('ProductImage')-> nullable();
-            $table->char('StoreID',5);
+            $table->string('StoreName');
             $table->timestamps();
-            $table->foreign('StoreID')->references('StoreID')->on('stores');
         });
     }
 

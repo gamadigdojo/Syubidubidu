@@ -16,7 +16,7 @@ class Product extends Model
         'ProductDescription',
         'ProductImage',
         'ProductStock',
-        'StoreID',
+        'StoreName',
     ];
 
     public function ratingReview(): HasMany
@@ -32,10 +32,5 @@ class Product extends Model
     public function OrderDetail(): HasMany
     {
         return $this->hasMany(OrderDetail::class);
-    }
-
-    public function store(): BelongsTo
-    {
-        return $this->belongsTo(Store::class);
     }
 }
