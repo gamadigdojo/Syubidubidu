@@ -29,9 +29,17 @@
               <p>{{$c->ProductID}}</p>
               <p>{{ $c->Product->ProductName }}</p>
               <span class="quantity">
-                  <button id="increase" type="button"><p>+</p></button>
+                  <form action="" name="" method="POST">
+                    @csrf
+                    {{-- @method('PATCH') --}}
+                    <button id="increase" type="submit"><p>+</p></button>
+                  </form>
                   <p id="amount"></p>
-                  <button id="decrease" type="button"><p>-</p></button>
+                  <form action="" name="" method="POST">
+                    @csrf
+                    {{-- @method('PATCH') --}}
+                    <button id="decrease" type="submit"><p>-</p></button>
+                  </form>
               </span>
             </div>
         </div>
@@ -39,5 +47,4 @@
 
     </div>
 </body>
-<script type="text/javascript" src="{{asset('JS/cart.js')}}"></script>
 </html>
