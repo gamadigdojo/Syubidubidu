@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use Laravolt\Avatar\Facade as Avatar;
+
+// use Laravolt\Avatar\Facade as Avatar;
 
 class RegisteredUserController extends Controller
 {
@@ -39,10 +40,10 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
             'DOB' => $request->DOB,
-            'profileIMG' => 'app/public/profileIMG-' . $request->Fname . '-' . $request->Lname . '.png'
+            'profileIMG' => 'default-profile.png'
         ]);
-        Avatar::create($request->Fname . ' ' . $request->Lname)->save(storage_path('app/public/profileIMG-' . $request->Fname . '-' . $request->Lname . '.png'));
-        event(new Registered($user));
+        // Avatar::create($request->Fname . ' ' . $request->Lname)->save(storage_path('profile'));
+        // event(new Registered($user));
 
         Auth::login($user);
 

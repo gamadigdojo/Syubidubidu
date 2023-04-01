@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../Assets/background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color:#292336;
+}
+
+#header{
+    margin-top: 9rem;
+    margin-bottom: 3rem;
+}
+
+.container {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+
+
+#settings-form{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 20px;
+    line-height: 25px;
+    color: #D9D9D9;
+    margin-top: 2rem;
+    display: block;
+	margin-bottom: 5px;
+}
+
+input[type=text]{
+    padding: 14px;
+    width: 404px;
+    height: 59px;
+    background: #4A3F62;
+    border-radius: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 20px;
+    line-height: 25px;
+    color: #D9D9D9;
+    border: 1px solid #ccc;
+}
+
+input[type=password]{
+    padding: 14px;
+    width: 404px;
+    height: 59px;
+    background: #4A3F62;
+    border-radius: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 20px;
+    line-height: 25px;
+    color: #D9D9D9;
+    border: 1px solid #ccc;
+}
+
+input[type=file]{
+    padding: 15px;
+    width: 404px;
+    height: 59px;
+    background: #4A3F62;
+    border-radius: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 12px;
+    line-height: 25px;
+    color: #D9D9D9;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.history{
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    padding: 1.5rem 2rem 2rem 2rem;
+    margin-bottom: 5rem;
+}
+
+.img-title{
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 16px;
+    color: #4A3F62;
+    margin: 2.5rem 0 0.5rem 0;
+}
+
+.img-product{
+    width: 73px;
+    height: 101px;
+}
+
+.detail{
+    display: inline-flex;
+    align-items: center;
+}
+
+.title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 32px;
+    color: #292336;
+    margin-top: 2rem;
+}
+
+.title-profile{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 30px;
+    color: #D9D9D9;
+}
+
+.profile-picture-container {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.profile-picture-container img {
+	max-width: 200px;
+	max-height: 200px;
+	border-radius: 50%;
+}
+
+.stars {
+    display: inline-block;
+    font-size: 24px;
+    color: #ddd;
+  }
+  
+  .stars:hover {
+    color: #f8d64e;
+  }
+  
+  .stars .star {
+    cursor: pointer;
+  }
+  
+  .stars .star:before {
+    content: '\2605';
+    margin-right: 5px;
+  }
+  
+  .stars .star.filled:before {
+    content: '\2605';
+    color: #f8d64e;
+  }
+
+  .bintang {
+    display: inline-block;
+    font-size: 24px;
+    color: #ddd;
+  }
+  
+  .bintang:hover {
+    color: #f8d64e;
+  }
+  
+  .bintang .bintangs {
+    cursor: pointer;
+  }
+  
+  .bintang .bintangs:before {
+    content: '\2605';
+    margin-right: 5px;
+  }
+  
+  .bintang .bintangs.filled:before {
+    content: '\2605';
+    color: #f8d64e;
+  }
+
+
+  .stars,
+  .bintang{
+    background: #4A3F62;
+    border-radius: 20px;
+    padding: 0.7rem 2rem 0.9rem 2rem;
+    margin-right: 1rem;
+  }
+
+  #submit-button{
+    margin-top: 3rem;
+    background-color: #D9D9D9;
+    border-radius: 50px;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 26px;
+    color: #292336;
+    transition: 0.1;
+    }
+
+#submit-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+  
+.error-message{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 7px;
+    line-height: 21px;
+    color: red;
+}
+  
