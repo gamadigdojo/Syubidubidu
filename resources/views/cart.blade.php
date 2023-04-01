@@ -5,58 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('CSS/cart.css')}}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-    </nav>
+  <nav>
+    <ul class="navbar">
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">Products</a></li>
+    </ul>
+  </nav>
 
-    <div class="row">
-        @foreach ($cart as $c)
-        <div class="col-sm-6 ">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{$c->ProductID}}</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="" class="btn btn-primary">Add to Cart</a>
-            </div>
-          </div>
+  <div class="title">
+    <h1>Keranjang anda.</h1>
+  </div>
+
+  <div class="row">
+    @foreach ($cart as $c)
+    <div class="content">
+      <img src="1.png" alt="">
+      <div class="desc">
+          <p>{{$c->ProductID}}</p>
+          <span class="quantity">
+              <button id="increase" type="button"><p>+</p></button>
+              <p id="amount"></p>
+              <button id="decrease" type="button"><p>-</p></button>
+          </span>
         </div>
-        @endforeach
     </div>
+    @endforeach
+  </div>
 </body>
+<script type="text/javascript" src="{{asset('JS/cart.js')}}"></script>
 </html>
