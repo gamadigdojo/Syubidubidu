@@ -46,17 +46,19 @@
     </nav>
 
     <div class="row">
-        @foreach ($cart as $c)
-        <div class="col-sm-6 ">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{$c->ProductID}}</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="" class="btn btn-primary">Add to Cart</a>
+      @foreach ($cart as $c)
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $c->Product->ProductID }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $c->Product->ProductName }}</h6>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="" class="btn btn-primary">Add to Cart</a>
+                </div>
             </div>
-          </div>
         </div>
-        @endforeach
+      @endforeach
+  
     </div>
 </body>
 </html>
