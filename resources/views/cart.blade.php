@@ -24,7 +24,7 @@
     <div class="row">
         @foreach ($cart as $c)
         <div class="content">
-          <img src="1.png" alt="">
+          <img src="{{asset('storage/products/'.$c->Product->ProductImage)}}" alt="">
           <div class="desc">
               <p>{{$c->ProductID}}</p>
               <p>{{ $c->Product->ProductName }}</p>
