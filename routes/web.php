@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,5 +43,6 @@ Route::get('/admin/getUpdate/{ProductID}', [AdminController::class, 'getUpdateIt
 Route::PATCH('/admin/update/{ProductID}', [AdminController::class, 'updateItem'])->name('updateItem');
 Route::delete('/admin/delete/{ProductID}', [AdminController::class, 'deleteItem'])->name('deleteItem');
 
+Route::get('transaction', [TransactionController::class, 'getTransactionPage'])->name('getTransactionPage');
 
 require __DIR__.'/auth.php';
