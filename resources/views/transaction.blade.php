@@ -22,7 +22,6 @@
         <div class="content">
             <div class="alamat-title">
                 <h2>Tujuan Pengiriman</h2>
-                <button>Ubah</button>
             </div>
             <div class="alamat-isi">
                 <div class="alamat-profil">
@@ -30,9 +29,7 @@
                     <p>{{$user->Fname}} {{$user->Lname}}</p>
                     <p class="no-telp">{{$user->phone}}</p>
                 </div>
-                <div class="alamat-jalan">
-                    <p>{{$user->address}}</p>
-                </div>
+                <input id="alamat" type="text" value="{{old('address', $user->address)}}" name="address">
             </div>
         </div>
         <div class="content">
