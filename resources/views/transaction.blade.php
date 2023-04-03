@@ -26,11 +26,12 @@
             </div>
             <div class="alamat-isi">
                 <div class="alamat-profil">
-                    <p>Nama Penerima</p>
-                    <p class="no-telp">081238751923</p>
+                    {{-- concat first name & last name --}}
+                    <p>{{$user->Fname}} {{$user->Lname}}</p>
+                    <p class="no-telp">{{$user->phone}}</p>
                 </div>
                 <div class="alamat-jalan">
-                    <p>Jl. Sudirman No. 130, Tanjung Karang Pusat, Kota Bandar Lampung</p>
+                    <p>{{$user->address}}</p>
                 </div>
             </div>
         </div>
@@ -43,35 +44,31 @@
                 <col width="150px"/>
                 <thead>
                     <tr>
-                        <td></td>
+                        <td>Produk</td>
                         <td>Harga Satuan</td>
                         <td>Jumlah</td>
                         <td>Subtotal</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <div class="item-info">
-                                <img src="1.png" alt="">
-                                <h5>Nama Barang</h5>
-                            </div>
-                        </td>
-                        <td>14.000</td>
-                        <td>3</td>
-                        <td>42.000</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="item-info">
-                                <img src="1.png" alt="">
-                                <h5>Nama Barang</h5>
-                            </div>
-                        </td>
-                        <td>14.000</td>
-                        <td>3</td>
-                        <td>42.000</td>
-                    </tr>
+                    @foreach ($cartItems as $c)
+                        <tr>
+                            <td>
+                                <div class="item-info">
+                                    <img src="{{asset('storage/products/'.$c->Product->ProductImage)}}" alt="">
+                                    <h5>{{$c->Product->ProductName}}</h5>
+                                </div>
+                            </td>
+                            <td>Rp.{{$c->Product->ProductPrice}}</td>
+                            <td>{{$c->Quantity}}</td>
+                            <td>Rp.{{$c->Product->ProductPrice * $c->Quantity}}</td>
+                        </tr>
+                        {{-- Count Total Price --}}
+                        @php
+                        $totalPrice = 0;
+                        $totalPrice += $c->Product->ProductPrice * $c->Quantity; 
+                        @endphp
+                    @endforeach
                 </tbody>
             </table>
             <h2>Opsi Pengiriman</h2>
@@ -83,8 +80,8 @@
                 <button>Ubah</button>
             </div>
             <div class="end">
-                <h2>Total pesanan (2 produk)</h2>
-                <h2>Rp 56.000</h2>
+                <h2>Total pesanan ({{count($cartItems)}} Produk)</h2>
+                <h2>Rp.{{$totalPrice}}</h2>
             </div>
         </div>
         <div class="content">
