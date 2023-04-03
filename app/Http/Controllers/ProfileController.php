@@ -73,7 +73,7 @@ class ProfileController extends Controller
         $user->save();
 
         // Redirect to the profile page
-        return redirect()->route('dashboard')->with('status', 'profile-updated');
+        return redirect()->route('inventory')->with('status', 'profile-updated');
     }
 
 

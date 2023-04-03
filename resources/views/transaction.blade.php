@@ -21,7 +21,7 @@
         @csrf
         <div class="content">
             <div class="alamat-title">
-                <h2>Alamat Pengiriman</h2>
+                <h2>Tujuan Pengiriman</h2>
                 <button>Ubah</button>
             </div>
             <div class="alamat-isi">
@@ -51,6 +51,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $totalPrice = 0;
+                    @endphp
                     @foreach ($cartItems as $c)
                         <tr>
                             <td>
@@ -65,7 +68,6 @@
                         </tr>
                         {{-- Count Total Price --}}
                         @php
-                        $totalPrice = 0;
                         $totalPrice += $c->Product->ProductPrice * $c->Quantity; 
                         @endphp
                     @endforeach

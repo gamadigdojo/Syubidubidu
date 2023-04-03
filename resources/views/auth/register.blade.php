@@ -101,35 +101,35 @@
              @csrf
             <div class="input">
                 <div class="input-box">
-                    <input type="text" placeholder="First name" id="firstName" name="Fname">
+                    <input type="text" placeholder="First name" id="firstName" name="Fname" required>
                     <div id="error-first-name" class="error-message"></div>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Last name" id="lastName" name="Lname">
+                    <input type="text" placeholder="Last name" id="lastName" name="Lname" required>
                     <div id="error-last-name" class="error-message"></div>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Address" id="address" name="address">
+                    <input type="text" placeholder="Address" id="address" name="address" required>
                     <div id="error-address" class="error-message"></div>
                 </div>
                 <div class="input-box">
-                    <input type="date" placeholder="Day of birth" id="dob" name="DOB">
+                    <input type="date" placeholder="Day of birth" id="dob" name="DOB" required>
                     <div class="error-message" id="error-dob"></div>
                 </div>
                 <div class="input-box">
-                    <input type="email" id="email" placeholder="Email" name="email">
+                    <input type="email" id="email" placeholder="Email" name="email" required>
                     <div class="error-message" id="error-email"></div>
                 </div>
                 <div class="input-box">
-                    <input type="tel" placeholder="Mobile number" id="phone" name="phone">
+                    <input type="tel" placeholder="Mobile number" id="phone" name="phone" required>
                     <div class="error-message" id="error-tel"></div>
                 </div>
                 <div class="input-box">
-                    <input type="password" id="password" placeholder="Password" name="password">
+                    <input type="password" id="password" placeholder="Password" name="password" required>
                     <div class="error-message" id="error-pass"></div>
                 </div>
                 <div class="input-box">
-                    <input type="password" id="confirmPassword" placeholder="Confirm Password" name="password_confirmation">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" name="password_confirmation" required>
                     <div class="error-message" id="confirm-password-error"></div>
                 </div>
             </div>
