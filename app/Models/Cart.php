@@ -9,6 +9,15 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Cart extends Model
 {
     use HasFactory;
+    // primary key = ProductID and Email (composite key)
+    protected $primaryKey = 'ProductID';
+    protected $casts = [
+        'ProductID' => 'string'
+    ];
+    // protected $casts = [
+    //     'ProductID' => 'string',
+    //     'Email' => 'string'
+    // ];
     protected $fillable = [
         'ProductID',
         'Quantity',

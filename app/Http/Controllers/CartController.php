@@ -37,13 +37,41 @@ class CartController extends Controller
         }else{
             Cart::create([
                 'ProductID' => $request->ProductID,
-                'Quantity' => 1,
-                'Email' => $request->Email,
+                'Quantity' => $request->Quantity,
+                'Email' => auth()->user()->email,
             ]);
         }
         // redirect to inventory page
         return redirect()->route('inventory')->with('success', 'Product added to cart');
     }
+
+    public function increaseQuantity(Request $request, $ProductID){
+        $cart = Cart::where('ProductID', $ProductID)->first();
+
+        if ($cart) {
+            $cart->Quantity += 1;
+            $cart->save();
+        }
+
+        return redirect()->back();
+    }
+
+    public function decreaseQuantity(Request $request, $ProductID){
+        $cart = Cart::where('ProductID', $ProductID)->first();
+
+        if ($cart) {
+            $cart->Quantity -= 1;
+            if ($cart->Quantity == 0) {
+                $cart->delete();
+            } else {
+                $cart->save();
+            }
+        }
+
+        return redirect()->back();
+    }
+
+    
 
     
    

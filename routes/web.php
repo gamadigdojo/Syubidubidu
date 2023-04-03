@@ -34,6 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::put('AddToCart', [CartController::class, 'store'])->name('AddToCart');
     Route::get('CheckCart/{id}', [CartController::class, 'CheckCart'])->name('CheckCart');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::patch('/cart/{id}/increase', [CartController::class, 'increaseQuantity'])->name('cart.increase');
+    Route::patch('/cart/{id}/decrease', [CartController::class, 'decreaseQuantity'])->name('cart.decrease');
+
+    Route::get('transaction', [TransactionController::class, 'getTransactionPage'])->name('getTransactionPage');
 });
 
 Route::get('/admin', [AdminController::class, 'index'])->name('adminPanel');

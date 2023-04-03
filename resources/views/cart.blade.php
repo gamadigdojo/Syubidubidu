@@ -29,22 +29,21 @@
               <p>{{$c->ProductID}}</p>
               <p>{{ $c->Product->ProductName }}</p>
               <span class="quantity">
-                  <form action="" name="" method="POST">
+                  <form action="{{route('cart.increase',$c->ProductID)}}"  method="POST">
                     @csrf
-                    {{-- @method('PATCH') --}}
+                    @method('PATCH')
                     <button id="increase" type="submit"><p>+</p></button>
                   </form>
-                  <p id="amount"></p>
-                  <form action="" name="" method="POST">
+                  <p id="amount">{{$c->Quantity}}</p>
+                  <form action="{{route('cart.decrease',$c->ProductID)}}"  method="POST">
                     @csrf
-                    {{-- @method('PATCH') --}}
+                    @method('PATCH')
                     <button id="decrease" type="submit"><p>-</p></button>
                   </form>
               </span>
             </div>
         </div>
         @endforeach
-
     </div>
 </body>
 </html>
