@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TransactionController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // paginate the products (3)
+    $products = Product::paginate(3);
+    return view('welcome', compact('products'));
 });
 
 Route::get('/dashboard', function () {
