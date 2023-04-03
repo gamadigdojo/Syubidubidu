@@ -96,7 +96,7 @@
             <div class="card">
                 <div class="title-content">
                     <h1>{{$p->ProductName}}</h1>
-                    <img class="img-product" src="{{asset('storage/products/'.$p->ProductImage)}}" alt="" height="300px" width="100%">
+                    <img class="img-product" src="{{asset('storage/products/'.$p->ProductImage)}}" alt="" height="200px" width="100%">
                 </div>
                 <div class="detail">
                     <p class="font-detail">{{$p->ProductCategory}}</p>

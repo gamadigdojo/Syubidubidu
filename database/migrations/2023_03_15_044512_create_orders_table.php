@@ -18,9 +18,15 @@ return new class extends Migration
             $table->char('ShipmentTypeID',5);
             $table->date('OrderDate');
             $table->string('OrderDestination');
-            $table->foreign('Email')->references('Email')->on('users');
-            $table->foreign('PaymentMethodID')->references('PaymentMethodID')->on('payment_methods');
-            $table->foreign('ShipmentTypeID')->references('ShipmentTypeID')->on('shipment_types');
+            $table->foreign('Email')->references('Email')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('PaymentMethodID')->references('PaymentMethodID')->on('payment_methods')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('ShipmentTypeID')->references('ShipmentTypeID')->on('shipment_types')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

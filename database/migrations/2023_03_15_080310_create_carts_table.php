@@ -16,8 +16,12 @@ return new class extends Migration
             $table->string('Email');
             $table->integer('Quantity')-> default(1);
             $table->primary(['ProductID', 'Email']);
-            $table->foreign('ProductID')->references('ProductID')->on('products');
-            $table->foreign('Email')->references('Email')->on('users');
+            $table->foreign('ProductID')->references('ProductID')->on('products')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('Email')->references('Email')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

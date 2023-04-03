@@ -16,8 +16,12 @@ return new class extends Migration
             $table->char('ProductID',5);
             $table->integer('Quantity');
             $table->primary(['OrderID', 'ProductID']); 
-            $table->foreign('OrderID')->references('OrderID')->on('orders');
-            $table->foreign('ProductID')->references('ProductID')->on('products');
+            $table->foreign('OrderID')->references('OrderID')->on('orders')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('ProductID')->references('ProductID')->on('products')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
