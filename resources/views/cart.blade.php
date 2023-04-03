@@ -40,8 +40,11 @@
                   </form>
               </span>
             </div>
-        </div>
-        @endforeach
+          </div>
+          @endforeach
+          <div class="buy">
+            <a class="buy-btn" href="{{route('getTransactionPage')}}">Beli Sekarang</a>
+          </div>
     </div>
 </body>
 </html>
