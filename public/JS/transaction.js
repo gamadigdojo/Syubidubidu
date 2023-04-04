@@ -16,10 +16,21 @@ radioBtns.forEach(function(radioBtn) {
     });
 });
 
-let Sprice = document.getElementById("price").innerText.split(" ")[1];
+let Sprice = document.getElementById("tempPrice").innerText;
 let price = parseInt(Sprice);
 
-function handleOptionChange() {
+let selectedIndex = document.getElementById("opsi-text").selectedIndex;
+let selectedOption = document.getElementById("opsi-text").options[selectedIndex];
+
+let Sfee = selectedOption.innerText.split(" - ")[1].split(" ")[1];
+let fee = parseInt(Sfee);
+
+let finalPrice = fee+price;
+
+document.getElementById("price").innerText = finalPrice;
+
+
+document.getElementById("opsi-text").addEventListener("change", function handleOptionChange() {
   var selectElement = document.getElementById("opsi-text");
   var selectedValue = selectElement.value;
 
@@ -32,6 +43,4 @@ function handleOptionChange() {
   let finalPrice = fee+price;
 
   document.getElementById("price").innerText = finalPrice;
-}
-
-document.getElementById("opsi-text").addEventListener("change", handleOptionChange);
+});
