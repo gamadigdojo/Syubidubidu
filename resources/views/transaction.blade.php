@@ -82,7 +82,7 @@
             </div>
             <div class="end">
                 <h2>Total pesanan ({{count($cartItems)}} Produk)</h2>
-                <h2>Rp.{{$totalPrice}}</h2>
+                <h2 id="price">Rp {{$totalPrice}}</h2>
             </div>
         </div>
         <div class="content">
