@@ -10,10 +10,10 @@
 <body>
     <nav>
         <ul class="navbar">
-            <li><a href="">Home</a></li>
-            <li><a href="">Cart</a></li>
-            <li><a href="">Profile</a></li>
-            <li><a href="">Products</a></li>
+            <li><a href="{{route('home')}}">Home</a></li>
+            <li><a href="{{route('cart')}}">Cart</a></li>
+            <li><a href="{{route('profile.edit')}}">Profile</a></li>
+            <li><a href="{{route('inventory')}}">Products</a></li>
         </ul>
     </nav>
 
