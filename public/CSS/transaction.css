@@ -224,6 +224,19 @@ td{
     cursor: pointer;
 }
 
+option{
+    background-color: #D9D9D9;
+    color: #292336;
+    /* font-size: 150%; */
+}
+
+select{
+    background-color: #D9D9D9;
+    color: #292336;
+    font-size: 150%;
+    border: none;
+}
+
 .opsi-info{
     display: flex;
     justify-content: space-between;
