@@ -15,7 +15,18 @@
         <li><a href="{{route('inventory')}}">Product</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#content">Contact</a></li>
-
+        {{-- Login or logout button --}}
+        @if (Route::has('login'))
+            @auth
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <li><button type="submit" class="btn btn-primary">Logout</button></li>
+                </form>
+            @else
+                <li><a href="{{ route('login') }}" class="btn btn-primary">Login</a></li>
+            @endauth
+        @endif
+    
        </ul>
     </header>
 
