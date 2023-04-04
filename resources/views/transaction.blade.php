@@ -59,9 +59,9 @@
                                     <h5>{{$c->Product->ProductName}}</h5>
                                 </div>
                             </td>
-                            <td>Rp {{$c->Product->ProductPrice}}</td>
+                            <td>Rp.{{$c->Product->ProductPrice}}</td>
                             <td>{{$c->Quantity}}</td>
-                            <td>Rp {{$c->Product->ProductPrice * $c->Quantity}}</td>
+                            <td>Rp.{{$c->Product->ProductPrice * $c->Quantity}}</td>
                         </tr>
                         {{-- Count Total Price --}}
                         @php
@@ -82,7 +82,7 @@
             </div>
             <div class="end">
                 <h2>Total pesanan ({{count($cartItems)}} Produk)</h2>
-                <h2>Rp {{$totalPrice}}</h2>
+                <h2>Rp.{{$totalPrice}}</h2>
             </div>
         </div>
         <div class="content">
