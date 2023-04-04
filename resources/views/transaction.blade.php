@@ -73,15 +73,11 @@
             <h2>Opsi Pengiriman</h2>
             <div class="opsi">
                 <div class="opsi-info">
-                    <input value="Pilih metode pengiriman" id="opsi-text" readonly>
-                    <p>Rp 6.000</p>
-                </div>
-                <button id="opsi-button" type="button">Ubah</button>
-                <div class="additional-options">
-                    <p>Option 1</p>
-                    <p>Option 2</p>
-                    <p>Option 3</p>
-                    <p>Option 4</p>
+                    <select name="ShipmentMethod" id="opsi-text">
+                        @foreach ($shipments as $s)
+                            <option value="{{$s->ShipmentTypeID}}">{{$s->ShipmentTypeName}} - Rp {{$s->ShipmentTypeFee}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="end">
