@@ -86,27 +86,30 @@
         <div class="content">
             <h2>Metode Pembayaran</h2>
             <div class="row">
-                <label id="btn1" for="radiobtn1">COD</label>
-                <input id="radiobtn1" type="radio" name="PaymentMethod">
-        
-                <label id="btn2" for="radiobtn2">Visa / Master Card</label>
-                <input id="radiobtn2" type="radio" name="PaymentMethod">
-        
-                <label id="btn3" for="radiobtn3">Virtual Account</label>
-                <input id="radiobtn3" type="radio" name="PaymentMethod">
+                @php
+                    $i = 1;
+                @endphp
+                @foreach($payments->take(3) as $p)
+                    <label id="btn{{$i}}" for="radiobtn{{$i}}">{{$p->PaymentMethodName}}</label>
+                    <input id="radiobtn{{$i}}" type="radio" name="PaymentMethod" value="{{$p->PaymentMethodID}}">
+                    @php
+                        $i++;
+                    @endphp
+                @endforeach
             </div>
-        
+            @php
+                $i = 4;
+            @endphp
             <div class="row">
-                <label id="btn4" for="radiobtn4">Transfer Bank</label>
-                <input id="radiobtn4" type="radio" name="PaymentMethod">
-        
-                <label id="btn5" for="radiobtn5">OVO</label>
-                <input id="radiobtn5" type="radio" name="PaymentMethod">
-        
-                <label id="btn6" for="radiobtn6">Gopay</label>
-                <input id="radiobtn6" type="radio" name="PaymentMethod">
+                @foreach($payments->slice(3) as $p)
+                    <label id="btn{{$i}}" for="radiobtn{{$i}}">{{$p->PaymentMethodName}}</label>
+                    <input id="radiobtn{{$i}}" type="radio" name="PaymentMethod" value="{{$p->PaymentMethodID}}">
+                    @php
+                        $i++;
+                    @endphp
+                @endforeach
             </div>
-        </div>
+        </div>        
         <div class="pesan">
             <button class="pesan-btn" type="submit">
                 <h2>Buat Pesanan</h2>

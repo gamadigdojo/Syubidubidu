@@ -7,6 +7,8 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Transaction;
 use App\Models\TransactionDetails;
+use App\Models\PaymentMethod;
+use App\Models\ShipmentType;
 
 
 class TransactionController extends Controller
@@ -15,7 +17,9 @@ class TransactionController extends Controller
         // get the user and all his cart items from cart table (based on user email)
         $user = auth()->user();
         $cartItems = Cart::where('email', $user->email)->get();
-        return view('transaction', compact('user', 'cartItems'));
+        $payments = PaymentMethod::all();
+        $shipments = ShipmentType::all();
+        return view('transaction', compact('user', 'cartItems', 'payments', 'shipments'));
     }
 
     public function checkout(Request $request){
