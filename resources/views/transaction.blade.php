@@ -59,9 +59,9 @@
                                     <h5>{{$c->Product->ProductName}}</h5>
                                 </div>
                             </td>
-                            <td>Rp.{{$c->Product->ProductPrice}}</td>
+                            <td>Rp {{$c->Product->ProductPrice}}</td>
                             <td>{{$c->Quantity}}</td>
-                            <td>Rp.{{$c->Product->ProductPrice * $c->Quantity}}</td>
+                            <td>Rp {{$c->Product->ProductPrice * $c->Quantity}}</td>
                         </tr>
                         {{-- Count Total Price --}}
                         @php
@@ -73,14 +73,20 @@
             <h2>Opsi Pengiriman</h2>
             <div class="opsi">
                 <div class="opsi-info">
-                    <p>Ambil di Tempat</p>
+                    <input value="Pilih metode pengiriman" id="opsi-text" readonly>
                     <p>Rp 6.000</p>
                 </div>
-                <button>Ubah</button>
+                <button id="opsi-button" type="button">Ubah</button>
+                <div class="additional-options">
+                    <p>Option 1</p>
+                    <p>Option 2</p>
+                    <p>Option 3</p>
+                    <p>Option 4</p>
+                </div>
             </div>
             <div class="end">
                 <h2>Total pesanan ({{count($cartItems)}} Produk)</h2>
-                <h2>Rp.{{$totalPrice}}</h2>
+                <h2>Rp {{$totalPrice}}</h2>
             </div>
         </div>
         <div class="content">
