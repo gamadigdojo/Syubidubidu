@@ -70,6 +70,7 @@
                     @endforeach
                 </tbody>
             </table>
+            <h6 style="display: none;" id="tempPrice">{{$totalPrice}}</h6>
             <h2>Opsi Pengiriman</h2>
             <div class="opsi">
                 <div class="opsi-info">
@@ -82,7 +83,7 @@
             </div>
             <div class="end">
                 <h2>Total pesanan ({{count($cartItems)}} Produk)</h2>
-                <h2 id="price">Rp {{$totalPrice}}</h2>
+                <h2 id="price"></h2>
             </div>
         </div>
         <div class="content">
