@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/cart/{id}/increase', [CartController::class, 'increaseQuantity'])->name('cart.increase');
     Route::patch('/cart/{id}/decrease', [CartController::class, 'decreaseQuantity'])->name('cart.decrease');
     Route::get('transaction', [TransactionController::class, 'getTransactionPage'])->name('getTransactionPage');
+    Route::post('transaction', [TransactionController::class, 'checkout'])->name('checkout');
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

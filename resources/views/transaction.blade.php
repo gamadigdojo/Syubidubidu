@@ -17,7 +17,7 @@
         </ul>
     </nav>
 
-    <form action="" method="POST">
+    <form action="{{route('checkout')}}" method="POST">
         @csrf
         <div class="content">
             <div class="alamat-title">

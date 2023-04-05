@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\User;
-use App\Models\Transaction;
-use App\Models\TransactionDetails;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\PaymentMethod;
 use App\Models\ShipmentType;
 
@@ -28,21 +28,22 @@ class TransactionController extends Controller
         $cartItems = Cart::where('email', $user->email)->get();
 
         // create OrderID {format TO[0-9][0-9][0-9] and unique}
-        $OrderID = 'TO'.rand(100, 999)->unique();
+        $OrderID = 'TO' . str_pad(mt_rand(0, 999), 3, '0', STR_PAD_LEFT);
         // create a new transaction
-        $transaction = Transaction::create([
-            
+        $transaction = Order::create([
             'OrderID' => $OrderID,
             'Email' =>  $user->email,
             'PaymentMethodID' => $request->PaymentMethodID,
             'ShipmentTypeID' => $request->ShipmentTypeID,
             'OrderDate'=> now(),
-            'OderDestination'=> $request->OderDestination,
+            'OrderDestination'=> $request->address,
+            'PaymentMethodID'=> $request->PaymentMethod,
+            'ShipmentTypeID'=> $request->ShipmentMethod,
         ]);
 
         // create a new transaction details for each cart item
         foreach ($cartItems as $cartItem) {
-            TransactionDetails::create([
+            OrderDetail::create([
                 'OrderID' => $OrderID,
                 'ProductID' => $cartItem->ProductID,
                 'Quantity' => $cartItem->Quantity,
@@ -52,6 +53,6 @@ class TransactionController extends Controller
         // delete all the cart items
         Cart::where('email', $user->email)->delete();
 
-        return redirect()->route('transaction')->with('success', 'Transaction successful');
+        return redirect()->route('inventory')->with('success', 'Transaction successful');
     }
 }
