@@ -11,10 +11,8 @@
 <body>
     <nav>
         <ul class="navbar">
-            <li><a href="">Home</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Products</a></li>
+            <li><a href="\">Home</a></li>
+            <li><a href="{{route('inventory')}}">Products</a></li>
         </ul>
     </nav>
 

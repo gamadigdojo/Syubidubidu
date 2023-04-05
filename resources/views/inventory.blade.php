@@ -84,6 +84,10 @@
             <li><a href="/">Home</a></li>
             <li><a href="{{route('cart')}}">Cart</a></li>
             <li><a href="{{route('profile.edit')}}">Profile</a></li>
+            {{-- show admin menu if the user is admin --}}
+            @if (Auth::user()->role == 'admin')
+            <li><a href="{{route('adminPanel')}}">Admin</a></li>
+            @endif
         </ul>
     </header>
 
