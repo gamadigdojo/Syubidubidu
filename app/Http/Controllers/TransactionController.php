@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
 use App\Models\PaymentMethod;
 use App\Models\ShipmentType;
 
@@ -48,10 +49,16 @@ class TransactionController extends Controller
                 'ProductID' => $cartItem->ProductID,
                 'Quantity' => $cartItem->Quantity,
             ]);
+
+            //  update the product quantity
+            $product = Product::find($cartItem->ProductID);
+            $product->ProductStock = $product->ProductStock - $cartItem->Quantity;
+            $product->save();
         }
 
         // delete all the cart items
         Cart::where('email', $user->email)->delete();
+
 
         return redirect()->route('inventory')->with('success', 'Transaction successful');
     }
