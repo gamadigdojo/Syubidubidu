@@ -46,11 +46,14 @@ class CartController extends Controller
     }
 
     public function increaseQuantity(Request $request, $ProductID){
+        //user cant increase quantity above the product stock
         $cart = Cart::where('ProductID', $ProductID)->first();
-
+        $product = Product::where('ProductID', $ProductID)->first();
         if ($cart) {
-            $cart->Quantity += 1;
-            $cart->save();
+            if ($cart->Quantity < $product->ProductStock) {
+                $cart->Quantity += 1;
+                $cart->save();
+            }
         }
 
         return redirect()->back();
